@@ -1,5 +1,10 @@
 package Desktop.Views;
 
+import DTO.LoginDTO;
+import Desktop.Controllers.UsuarioController;
+import Entities.Usuario;
+import Enums.Funcao;
+
 public class Login extends javax.swing.JFrame {
 
     public Login() {
@@ -36,6 +41,11 @@ public class Login extends javax.swing.JFrame {
 
         btnLogin.setFont(new java.awt.Font("JetBrainsMono NF", 1, 14)); // NOI18N
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         lblRegister.setFont(new java.awt.Font("JetBrainsMono NF", 1, 16)); // NOI18N
         lblRegister.setForeground(new java.awt.Color(0, 0, 255));
@@ -91,6 +101,23 @@ public class Login extends javax.swing.JFrame {
     private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lblRegisterMouseClicked
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String email = this.tfEmail1.getText();
+        String senha = new String(this.tfPassword.getPassword());
+
+        LoginDTO dto = new LoginDTO(email, senha);
+        Usuario u = new UsuarioController().AutenticarUsuario(dto);
+        
+        if(u.getFuncao_usuario() == Funcao.ADMINISTRADOR){
+            this.dispose();
+            new HomeAdmin(u.getId()).setVisible(true);
+        }else {
+            this.dispose();
+            new HomeUser(u.getId()).setVisible(true);
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;

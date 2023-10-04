@@ -9,6 +9,10 @@ package UseCases.Errors;
  *
  * @author Professor
  */
-public class UsuarioJaExiste {
+public class UsuarioJaExiste extends Exception{
+
+    public UsuarioJaExiste(String message) {
+        super(message);
+    }
     
 }
