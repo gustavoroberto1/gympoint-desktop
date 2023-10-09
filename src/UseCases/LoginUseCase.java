@@ -2,6 +2,7 @@ package UseCases;
 
 import DTO.LoginDTO;
 import Entities.Usuario;
+import Enums.Funcao;
 import Repositories.UsuarioRepository;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -15,7 +16,7 @@ public class LoginUseCase {
     public Usuario executar(LoginDTO loginDto) throws Exception {
         Usuario u = this.usuarioRepository.buscarPorEmail(loginDto.getEmail());
         if(u == null){
-            throw new Exception("USUÁRIO NÃO CADASTRO");
+            throw new Exception("USUÁRIO NÃO CADASTRADO");
         }
         
         boolean ehValido = BCrypt.checkpw(loginDto.getSenha(), u.getSenha_hash());

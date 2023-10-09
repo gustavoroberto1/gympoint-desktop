@@ -30,7 +30,7 @@ public class Usuario {
 
     @Column(name = "data_criacao")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_criacao;
+        private Date data_criacao;
 
     public Usuario() { }
 
