@@ -60,4 +60,22 @@ public class LoginUseCaseTest {
             TestCase.assertEquals("USUÁRIO NÃO CADASTRADO", e.getMessage());
         }        
     }
+    
+    @Test
+    public void testeLoginComSenhaIncorreta() {
+        String email = "gustavo@exemplo.com";
+        String senha = "123";
+        
+        Usuario usuario = new Usuario("gustavo", email, senha, Funcao.ADMINISTRADOR);
+        this.usuarioRepository.create(usuario);
+        
+        try {
+            LoginDTO dto = new LoginDTO(email, "1234");
+            Usuario u = this.loginUseCase.executar(dto);
+        } catch (Exception e){
+            TestCase.assertEquals("SENHA ERRADA MALUCO", e.getMessage());
+        }
+        
+        
+    }
 }

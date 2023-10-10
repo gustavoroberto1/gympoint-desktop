@@ -13,14 +13,10 @@ public class CriarAcademiaUseCase {
     }
     
     public Academia executar(CriarAcademiaDTO dto) {
-        // RECEBER AS INFORMAÇÕES - OK
-        // BUSCAR A ACADEMIA POR NOME
-            // SE JÁ EXISTIR ACADEMIA COM O NOME ATUAL
-                // LANÇAR EXCEPTION
-            // SE NÃO EXISTIR ACADEMIA COM NOME ATUAL
-                // CRIAR NOVA ACADEMIA (NEW ACADEMIA())
-                // GUARDAR ACADEMIA NO BANCO DE DADOS
+
+        Academia academia = new Academia(dto.getNome(), dto.getTelefone(), dto.getDescricao(), dto.getLatitude(), dto.getLongitude());
+        this.academiaRepository.create(academia);
         
-        return null;
+        return academia;
     }
 }

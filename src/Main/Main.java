@@ -1,6 +1,7 @@
 package Main;
 
 import Desktop.Views.Login;
+import Desktop.Views.Register;
 import Entities.Academia;
 import Repositories.AcademiaRepository;
 import Repositories.Hibernate.HibernateAcademiaRepository;
