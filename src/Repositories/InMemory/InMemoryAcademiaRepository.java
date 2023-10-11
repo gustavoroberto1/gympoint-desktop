@@ -3,6 +3,7 @@ package Repositories.InMemory;
 import Entities.Academia;
 import Repositories.AcademiaRepository;
 import java.util.ArrayList;
+import java.util.List;
 
 public class InMemoryAcademiaRepository implements AcademiaRepository {
     private final ArrayList<Academia> academias = new ArrayList<>();
@@ -21,6 +22,11 @@ public class InMemoryAcademiaRepository implements AcademiaRepository {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Academia> buscarAcademias(String termo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

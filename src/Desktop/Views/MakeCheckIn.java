@@ -1,11 +1,14 @@
 package Desktop.Views;
 
+import Desktop.Controllers.AcademiaController;
+import Entities.Academia;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.jxmapviewer.JXMapKit;
 import org.jxmapviewer.viewer.DefaultWaypoint;
@@ -18,7 +21,7 @@ public class MakeCheckIn extends javax.swing.JFrame {
     private final JXMapKit mapKit = new JXMapKit();
     private final UUID userId;
     GeoPosition initialPosition = null;
-    List<Object> listGyms = new ArrayList<>();
+    List<Academia> listGyms = new ArrayList<>();
 
     public MakeCheckIn(UUID userId) {
         this.userId = userId;
@@ -48,16 +51,21 @@ public class MakeCheckIn extends javax.swing.JFrame {
     }
 
     private void loadGyms(String query) {
+        this.tableGym.removeAll();
         // BUSCAR AS ACADEMIAS
+        this.listGyms = new AcademiaController().BuscarAcademia(query);
         // VERIFICAR SE É NULA
         // SE FOR RETURN VAZIO
+        if(listGyms.isEmpty()){
+            JOptionPane.showMessageDialog(null, "NÃO FOI ENCONTRADO NENHUMA ACADEMIA");
+            return;
+        }
+        
         // SENÃO PREENCHE A TABELA
-
-        this.listGyms.add(""); // REMOVER DEPOIS
-        this.listGyms.add(""); // REMOVER DEPOIS
         DefaultTableModel table = (DefaultTableModel) this.tableGym.getModel();
-        for (Object gym : this.listGyms) {
-            Object[] dados = {"Academia Java", "Musculação, Personal", "(47) 9 9999-9999"};
+        table.setRowCount(0);
+        for (Academia gym : this.listGyms) {
+            Object[] dados = {gym.getNome(), gym.getDescricao(), gym.getTelefone()};
             table.addRow(dados);
         }
     }
@@ -221,7 +229,7 @@ public class MakeCheckIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        String gymName = this.tfSearch.getText();
+        String gymName = this.tfSearch.getText();       
         loadGyms(gymName);
     }//GEN-LAST:event_btnSearchActionPerformed
 

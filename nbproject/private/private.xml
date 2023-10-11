@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Professor.SN-358980/3D%20Objects/gympoint-desktop/src/Repositories/AcademiaRepository.java</file>
+            <file>file:/C:/Users/Professor.SN-358980/3D%20Objects/gympoint-desktop/src/Desktop/Views/MakeCheckIn.java</file>
+            <file>file:/C:/Users/Professor.SN-358980/3D%20Objects/gympoint-desktop/src/UseCases/Factories/MakeCriarAcademiaUseCase.java</file>
+            <file>file:/C:/Users/Professor.SN-358980/3D%20Objects/gympoint-desktop/src/Repositories/Hibernate/HibernateAcademiaRepository.java</file>
+            <file>file:/C:/Users/Professor.SN-358980/3D%20Objects/gympoint-desktop/src/UseCases/Factories/MakeBuscarAcademiasUseCase.java</file>
+            <file>file:/C:/Users/Professor.SN-358980/3D%20Objects/gympoint-desktop/src/Desktop/Controllers/AcademiaController.java</file>
+            <file>file:/C:/Users/Professor.SN-358980/3D%20Objects/gympoint-desktop/src/Entities/Academia.java</file>
+            <file>file:/C:/Users/Professor.SN-358980/3D%20Objects/gympoint-desktop/src/UseCases/BuscarAcademiasUseCase.java</file>
+            <file>file:/C:/Users/Professor.SN-358980/3D%20Objects/gympoint-desktop/src/Repositories/InMemory/InMemoryAcademiaRepository.java</file>
+        </group>
     </open-files>
 </project-private>

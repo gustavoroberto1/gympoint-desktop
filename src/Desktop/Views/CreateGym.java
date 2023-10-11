@@ -1,5 +1,7 @@
 package Desktop.Views;
 
+import DTO.CriarAcademiaDTO;
+import Desktop.Controllers.AcademiaController;
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -203,12 +205,9 @@ public class CreateGym extends javax.swing.JFrame {
         String description = this.taDescription.getText();
         Double latitute = this.geoPositionSelected.getLatitude();
         Double longitude = this.geoPositionSelected.getLongitude();
-
-        System.out.println(gymName);
-        System.out.println(phone);
-        System.out.println(description);
-        System.out.println(latitute);
-        System.out.println(longitude);
+        
+        CriarAcademiaDTO dto = new CriarAcademiaDTO(gymName, phone, description, latitute, longitude);
+        new AcademiaController().CriarAcademia(dto);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
